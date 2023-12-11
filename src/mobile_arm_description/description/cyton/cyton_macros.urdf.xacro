@@ -11,39 +11,6 @@
             <xacro:cyton_hardware initial_positions_file="$(arg initial_positions_file)"/>
         </xacro:unless>
 
-        <!-- <material name="blue">
-          <color rgba= "1 0 0 1"/>
-        </material> -->
-
-        <!-- Initial footprint motor used here -->
-        <!-- <link name="base_footprint">
-                <inertial>
-                    <mass value="2.92"/>
-                    <origin rpy="0 0 0" xyz="-0.025566 -2.88e-05 0.057332"/>
-                    <inertia ixx="0.00782229414331" ixy="-1.56191622996e-05" ixz="-0.00126005738123" iyy="0.0109027971813" iyz="1.08233858202e-05" izz="0.0102355503949"/>
-                  </inertial>
-                <visual>
-                    <origin xyz="0 0 1" rpy="0 0 0" />
-                    <geometry>
-                        <sphere radius="0.001" />
-                    </geometry>
-                    <material name="blue"/>
-                </visual>
-                <collision>
-                    <origin xyz="0 0 1" rpy="0 0 0" />
-                    <geometry>
-                        <sphere radius="0.01" />
-                    </geometry>
-                </collision>
-        </link>
-
-        <joint name="base_joint" type="fixed">
-                <parent link="base_footprint" />
-                <child link="base_link" />
-                <dynamics damping="0.5" friction="0.5"/>
-                <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-        </joint> -->
-
         <!-- Base of robot here -->
         <link name="arm_base_link">
             <visual>

@@ -1,10 +1,10 @@
 version: '3'
 services:
-  cyton_simulation:
+  mobile_arm_simulation:
     build:
       context: ./
       dockerfile: docker/simulation/Dockerfile
-    image: cyton_simulation
+    image: mobile_arm_simulation
     user: ros
     network_mode: host
     ipc: host
@@ -22,12 +22,12 @@ services:
       - /dev/dri:/dev/dri
     stdin_open: true 
     tty: true
-    command: ros2 launch cyton_bringup cyton_simulation.launch.py use_sim:=True
-  cyton_moveit_sim:
+    command: ros2 launch mobile_arm_bringup simulation.launch.py
+  mobile_arm_moveit:
     build:
       context: ./
       dockerfile: docker/simulation/Dockerfile
-    image: cyton_simulation
+    image: mobile_arm_simulation
     user: ros
     network_mode: host
     ipc: host
@@ -45,4 +45,4 @@ services:
       - /dev/dri:/dev/dri
     stdin_open: true 
     tty: true
-    command: ros2 launch cyton_moveit moveit_blank.launch.py use_sim:=True
+    command: ros2 launch mobile_arm_moveit moveit_blank.launch.py use_sim:=True

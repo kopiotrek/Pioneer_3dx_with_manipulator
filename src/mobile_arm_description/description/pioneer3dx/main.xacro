@@ -27,7 +27,12 @@
   <xacro:vehicle_body name="body" parent="base_link"/>
   
   <!-- differential drive  and joint stage plugin -->
-  <xacro:include filename="${models_dir}/${robot_model}/plugins.xacro"/>
+  <xacro:if value="$(arg use_sim)">
+    <xacro:include filename="${models_dir}/${robot_model}/plugins_ignition.xacro"/>
+  </xacro:if>
+  <xacro:unless value="$(arg use_sim)">
+    <xacro:include filename="${models_dir}/${robot_model}/plugins_hardware.xacro"/>
+  </xacro:unless>
   <xacro:differential_drive    name="$(arg robot_name)"/>
   <xacro:joint_state_publisher name="$(arg robot_name)"/>
   

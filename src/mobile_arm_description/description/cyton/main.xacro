@@ -20,6 +20,7 @@
     <xacro:unless value="$(arg use_sim)">
       <xacro:include filename="$(arg models_dir)/cyton/cyton.hardware.xacro" />
     </xacro:unless>
+    
     <xacro:cyton_robot/>
 
   </xacro:macro>

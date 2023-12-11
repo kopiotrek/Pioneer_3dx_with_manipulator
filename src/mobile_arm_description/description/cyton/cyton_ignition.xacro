@@ -55,11 +55,7 @@
 
   <xacro:macro name="cyton_ignition" >
 
-    <gazebo>
-      <plugin name="ign_ros2_control::IgnitionROS2ControlPlugin" filename="libign_ros2_control-system.so" >
-      <parameters> $(find cyton_bringup)/config/cyton_controller.yaml </parameters>
-      </plugin>
-    </gazebo>
+
 
     
   <ros2_control name="IgnitionSystem" type="system">

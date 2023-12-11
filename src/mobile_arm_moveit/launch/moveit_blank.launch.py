@@ -12,13 +12,13 @@ from moveit_configs_utils import MoveItConfigsBuilder
 def generate_launch_description():
     declare_description_package_arg = DeclareLaunchArgument(
             "description_package",
-            default_value="cyton_description",
+            default_value="mobile_arm_description",
             description="Description package with robot URDF/xacro files. Usually the argument \
         is not set, it enables use of a custom description.",
     )
     declare_description_file_arg = DeclareLaunchArgument(
             "description_file",
-            default_value="cyton.urdf.xacro",
+            default_value="main.xacro",
             description="URDF/XACRO description file with the robot.",
     )
     declare_use_sim_arg = DeclareLaunchArgument(
@@ -31,8 +31,8 @@ def generate_launch_description():
     description_package = LaunchConfiguration("description_package")
     description_file = LaunchConfiguration("description_file")
 
-    moveit_config = MoveItConfigsBuilder("cyton", package_name="cyton_moveit").to_moveit_configs()
-    xacro_file = PathJoinSubstitution([FindPackageShare(description_package), 'urdf', description_file])
+    moveit_config = MoveItConfigsBuilder("cyton", package_name="mobile_arm_moveit").to_moveit_configs()
+    xacro_file = PathJoinSubstitution([FindPackageShare(description_package), "description", "pioneer3dx", description_file])
     robot_description_content = {
         'robot_description': Command(['xacro ', xacro_file, " use_sim:=", use_sim])
     }
@@ -68,7 +68,7 @@ def generate_launch_description():
 
     rviz_config = PathJoinSubstitution(
         [
-            FindPackageShare("cyton_moveit"),
+            FindPackageShare("mobile_arm_moveit"),
             "config",
             "moveit.rviz",
         ]

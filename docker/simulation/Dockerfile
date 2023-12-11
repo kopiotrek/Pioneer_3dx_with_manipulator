@@ -81,7 +81,9 @@ COPY ./src/ src/
 
 
 RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
-colcon build --packages-select mobile_arm_description; \
+colcon build --packages-select mobile_arm_description ; \
 cd /app; \
 source install/setup.bash; \
-colcon build --packages-select cyton_bringup cyton_moveit"
+colcon build --packages-select mobile_arm_bringup ; \
+source install/setup.bash; \
+colcon build --packages-select mobile_arm_moveit "
