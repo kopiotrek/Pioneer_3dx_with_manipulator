@@ -4,12 +4,7 @@
 
 
     <xacro:macro name="cyton_robot">
-        <xacro:if value="$(arg use_sim)">
-            <xacro:cyton_ignition />
-        </xacro:if>
-        <xacro:unless value="$(arg use_sim)">
-            <xacro:cyton_hardware initial_positions_file="$(arg initial_positions_file)"/>
-        </xacro:unless>
+
 
         <!-- Base of robot here -->
         <link name="arm_base_link">

@@ -10,7 +10,7 @@
   <xacro:arg name="laser0_topic"     default="scan_raw"/>
   <xacro:arg name="laser0_visualize" default="true"/>
   <xacro:arg name="laser0_driver"    default="gpu"/>
-  <xacro:arg name="use_sim"          default="false"/>
+  <xacro:arg name="use_sim"          default="true"/>
 
     
   <xacro:property name="models_dir"    value="$(arg models_dir)"/>
@@ -27,14 +27,17 @@
   <xacro:vehicle_body name="body" parent="base_link"/>
   
   <!-- differential drive  and joint stage plugin -->
-  <xacro:if value="$(arg use_sim)">
     <xacro:include filename="${models_dir}/${robot_model}/plugins_ignition.xacro"/>
+    <xacro:include filename="${models_dir}/${robot_model}/plugins_hardware.xacro"/>
+
+
+  <xacro:if value="$(arg use_sim)">
+    <xacro:plugins_ignition />
   </xacro:if>
   <xacro:unless value="$(arg use_sim)">
-    <xacro:include filename="${models_dir}/${robot_model}/plugins_hardware.xacro"/>
+    <xacro:plugins_hardware initial_positions_file="$(arg initial_positions_file)"/>
   </xacro:unless>
-  <xacro:differential_drive    name="$(arg robot_name)"/>
-  <xacro:joint_state_publisher name="$(arg robot_name)"/>
+
   
   <!-- Laser -->
   <xacro:include filename="${models_dir}/${laser_model}/main.xacro"/>

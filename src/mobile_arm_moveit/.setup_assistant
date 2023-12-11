@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   urdf:
-    package: cyton_description
-    relative_path: urdf/cyton.urdf.xacro
+    package: mobile_arm_description
+    relative_path: description/pioneer3dx/main.xacro
   srdf:
     relative_path: config/cyton.srdf
   package_settings:

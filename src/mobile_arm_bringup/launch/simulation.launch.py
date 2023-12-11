@@ -128,7 +128,7 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [FindPackageShare("ros_ign_gazebo"), "/launch", "/ign_gazebo.launch.py"]
-        ),              launch_arguments = {'ign_args': f"-v 4 -r {world_path}"}.items()
+        ),              launch_arguments = {'ign_args': "-v 4 -r /app/src/mobile_arm_bringup/worlds/box.sdf"}.items()
         ) 
 
     # Spawn robot
@@ -145,16 +145,17 @@ def generate_launch_description():
         executable="spawner",
         arguments=["diff_drive_controller", "-c", "/controller_manager"],
     )
+    
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+        arguments=["joint_state_broadcaster", "-c", "/controller_manager"],
     )
 
     gripper_action_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["gripper_action_controller", "--controller-manager", "/controller_manager"],
+        arguments=["gripper_action_controller", "-c", "/controller_manager"],
     )
 
     robot_controllers = [robot_controller]
