@@ -1,6 +1,6 @@
 version: '3'
 services:
-  pioneer_sim:
+  pioneer_simulation:
     build:
       context: ./
       dockerfile: docker/pioneer/Dockerfile
@@ -15,11 +15,11 @@ services:
       - CYCLONEDDS_URI=${CYCLONEDDS_URI}
       - ROS_DOMAIN_ID
     volumes:
-      - ./cyclonedds.xml:/cyclonedds.xml
+      - ./cyclonedds_ariadna.xml:/cyclonedds.xml
       - ./src:/src
       - /tmp/.X11-unix:/tmp/.X11-unix
     devices:
       - /dev/dri:/dev/dri
     stdin_open: true 
     tty: true
-    command:  ros2 launch pioneer_cyton_description spawn_robot.launch.py
+    command:  ros2 launch pioneer_bringup spawn_robot.launch.py

@@ -37,10 +37,8 @@ RUN apt-get update \
     # DynamixelHardware
     ros-$ROS_DISTRO-dynamixel-workbench-toolbox \
     && rm -rf /var/lib/apt/lists/*
-
+    
 RUN rosdep update
-
-
 
 
 # Create a non-root user
@@ -80,12 +78,10 @@ WORKDIR /app
 # Copy the cyton_ros2 project
 COPY ./src/ src/
 
-# RUN /bin/bash -c "source /opt/ros/humble/setup.bash;  \
-# colcon build; source install/setup.bash; \
-# colcon build --packages-select dynamixel_hardware cyton_bringup cyton_moveit"
+
 
 RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
-colcon build --packages-select dynamixel_hardware; \
+colcon build --packages-select cyton_description dynamixel_hardware; \
 cd /app; \
 source install/setup.bash; \
 colcon build --packages-select cyton_bringup cyton_moveit"
