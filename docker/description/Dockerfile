@@ -30,8 +30,14 @@ RUN apt-get update \
     ros-$ROS_DISTRO-ign-ros2-control \
     ros-$ROS_DISTRO-controller-manager \
     ros-$ROS_DISTRO-ros2-control \
-    ros-$ROS_DISTRO-ros2-controllers 
-
+    ros-$ROS_DISTRO-ros2-controllers \
+    ros-$ROS_DISTRO-gripper-controllers \
+    # MoveIt
+    ros-$ROS_DISTRO-moveit \
+    # DynamixelHardware
+    ros-$ROS_DISTRO-dynamixel-workbench-toolbox \
+    && rm -rf /var/lib/apt/lists/*
+    
 RUN rosdep update
 
 
@@ -75,7 +81,7 @@ COPY ./src/ src/
 
 
 RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
-                  colcon build --packages-select pioneer_description; \
-                  cd /app; \
-                  source install/setup.bash; \
-                  colcon build --packages-select pioneer_bringup"
+colcon build --packages-select mobile_arm_description mobile_arm_moveit; \
+cd /app; \
+source install/setup.bash; \
+colcon build --packages-select mobile_arm_bringup"

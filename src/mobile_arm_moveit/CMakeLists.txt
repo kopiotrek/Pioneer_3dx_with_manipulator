@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(cyton_moveit)
+project(mobile_arm_moveit)
 
 find_package(ament_cmake REQUIRED)
 

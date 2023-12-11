@@ -11,13 +11,12 @@
             <xacro:cyton_hardware initial_positions_file="$(arg initial_positions_file)"/>
         </xacro:unless>
 
-        <material name="blue">
+        <!-- <material name="blue">
           <color rgba= "1 0 0 1"/>
-        </material>
+        </material> -->
 
         <!-- Initial footprint motor used here -->
-        <link name="base_footprint">
-                <!-- ZMIENIĆ!!! -->
+        <!-- <link name="base_footprint">
                 <inertial>
                     <mass value="2.92"/>
                     <origin rpy="0 0 0" xyz="-0.025566 -2.88e-05 0.057332"/>
@@ -43,10 +42,10 @@
                 <child link="base_link" />
                 <dynamics damping="0.5" friction="0.5"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-        </joint>
+        </joint> -->
 
         <!-- Base of robot here -->
-        <link name="base_link">
+        <link name="arm_base_link">
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
@@ -72,7 +71,7 @@
 
         <!-- First motor located here -->
         <joint name="joint1" type="revolute">
-            <parent link="base_link" />
+            <parent link="arm_base_link" />
             <child link="link1" />
             <origin xyz="0 0 0.05315" rpy="0 0 0" />
             <dynamics damping="0.5" friction="0.5"/>
@@ -383,7 +382,7 @@
 
         <!-- Dummy joint/link to prevent error with mimic joint -->
         <joint name="joint9_mimic" type="fixed">
-            <parent link="world" />
+            <parent link="arm_base_link" />
             <child link="dummy_mimic_fix" />
         </joint>
         <link name="dummy_mimic_fix"/>

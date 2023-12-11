@@ -6,20 +6,20 @@ from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration, Command
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare, PathJoinSubstitution
 
 import xacro
 
 
 def generate_launch_description():
 
+    description_package = LaunchConfiguration('description_package')
+    description_file = LaunchConfiguration('description_file')
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_sim = LaunchConfiguration('use_sim')
+    
+    xacro_file = PathJoinSubstitution([FindPackageShare(description_package), 'urdf', description_file])
 
-    pkg_path = os.path.join(
-        get_package_share_directory('pioneer_description'))
-    # xacro_file = os.path.join(pkg_path, 'description', 'robot.urdf.xacro')
-    xacro_file = os.path.join(pkg_path, 'description',
-                              'pioneer3dx', 'main.xacro')
     robot_description_config = Command(
         ['xacro ', xacro_file, 'use_sim:=', use_sim])
 

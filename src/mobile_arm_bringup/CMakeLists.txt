@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(cyton_bringup)
+project(mobile_arm_bringup)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -20,11 +20,6 @@ find_package(ament_cmake REQUIRED)
 find_package(ros2_control REQUIRED)
 find_package(ros2_controllers REQUIRED)
 
-find_package(urdf REQUIRED)
-find_package(xacro REQUIRED)
-find_package(tf2 REQUIRED)
-find_package(tf2_geometry_msgs REQUIRED)
-find_package(tf2_ros REQUIRED)
 # find_package(realsense2_description REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.

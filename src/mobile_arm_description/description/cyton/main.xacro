@@ -9,7 +9,7 @@
         <axis xyz="0 0 1" />
         <origin xyz="${xyz}" rpy="${rpy}"/>
         <parent link="${parent}"/>
-        <child link="base_footprint"/>
+        <child link="arm_base_link"/>
     </joint>
 
     <xacro:include filename="$(arg models_dir)/cyton/cyton_macros.urdf.xacro" />

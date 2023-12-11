@@ -92,9 +92,6 @@ def generate_launch_description():
     world = LaunchConfiguration("world")
     use_sim = LaunchConfiguration("use_sim")
 
-    package_name = 'pioneer_bringup'
-    world_file_name = 'test_zone_v1.world'
-
     world_path = PathJoinSubstitution(
                 [FindPackageShare(runtime_config_package), "worlds", world]
             )
@@ -102,8 +99,8 @@ def generate_launch_description():
     robot_state_pub = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(
-                package_name), 'launch', 'robot_state_pub.launch.py'
-        )]), launch_arguments={'use_sim_time': use_sim, 'use_sim': use_sim}.items()
+                runtime_config_package), 'launch', 'robot_state_pub.launch.py'
+        )]), launch_arguments={'description_package': description_package, 'description_file': description_file, 'use_sim_time': use_sim, 'use_sim': use_sim}.items()
     )
 
     
