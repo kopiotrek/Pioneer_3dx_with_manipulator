@@ -78,10 +78,16 @@ WORKDIR /app
 # Copy the cyton_ros2 project
 COPY ./src/ src/
 
-
+RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
+colcon build --packages-select dynamixel_hardware;"
 
 RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
-colcon build --packages-select mobile_arm_description mobile_arm_moveit; \
-cd /app; \
-source install/setup.bash; \
-colcon build --packages-select mobile_arm_bringup"
+colcon build --packages-select mobile_arm_description;"
+
+RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
+source /app/install/setup.bash; \
+colcon build --packages-select mobile_arm_bringup;"
+
+RUN /bin/bash -c "source /opt/ros/humble/setup.bash; \
+source /app/install/setup.bash; \
+colcon build --packages-select mobile_arm_moveit"

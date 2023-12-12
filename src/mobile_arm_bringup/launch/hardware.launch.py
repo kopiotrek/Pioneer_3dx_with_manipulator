@@ -68,13 +68,11 @@ def generate_launch_description():
         )
     )
 
-    cyton_bringup_dir = get_package_share_directory("cyton_bringup")
     # Initialize Arguments
     runtime_config_package = LaunchConfiguration("runtime_config_package")
     controllers_file = LaunchConfiguration("controllers_file")
     description_package = LaunchConfiguration("description_package")
     description_file = LaunchConfiguration("description_file")
-    prefix = LaunchConfiguration("prefix")
     robot_controller = LaunchConfiguration("robot_controller")
 
 
@@ -86,7 +84,7 @@ def generate_launch_description():
     
 
     # Get URDF via xacro
-    xacro_file = PathJoinSubstitution([FindPackageShare(description_package), 'urdf', description_file])
+    xacro_file = PathJoinSubstitution([FindPackageShare(description_package), "description", "pioneer3dx", description_file])
     robot_description = {
         'robot_description': Command(['xacro ', xacro_file])
     }
@@ -98,12 +96,19 @@ def generate_launch_description():
         parameters=[robot_description],
     )
 
-    ros2_control_config = os.path.join(get_package_share_directory('cyton_bringup'), 'config', 'cyton_controller.yaml')
-    ros2_control = Node(
-            package="controller_manager",
-            executable="ros2_control_node",
-            parameters=[robot_description,ros2_control_config],
-        )
+    # ros2_control_config = PathJoinSubstitution([FindPackageShare(runtime_config_package), "config", controllers_file])
+    # ros2_control_config = os.path.join(get_package_share_directory('cyton_bringup'), 'config', 'cyton_controller.yaml')
+    # ros2_control = Node(
+    #         package="controller_manager",
+    #         executable="ros2_control_node",
+    #         parameters=[robot_description],
+    #     )
+
+    diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_drive_controller", "-c", "/controller_manager"],
+    )
 
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
@@ -134,7 +139,8 @@ def generate_launch_description():
         + [
             robot_state_pub_node,
             # delay_rviz_after_joint_state_broadcaster_spawner,
-            ros2_control,
+            # ros2_control,
+            diff_drive_spawner,
             joint_state_broadcaster_spawner,
             gripper_action_controller_spawner,
         ]
