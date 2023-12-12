@@ -10,7 +10,8 @@
   <xacro:arg name="laser0_topic"     default="scan_raw"/>
   <xacro:arg name="laser0_visualize" default="true"/>
   <xacro:arg name="laser0_driver"    default="gpu"/>
-  <xacro:arg name="use_sim"          default="true"/>
+  <xacro:arg name="use_sim"          default="False"/>
+  <xacro:arg name="initial_positions_file"      default="$(find mobile_arm_moveit)/config/initial_positions.yaml"/>
 
     
   <xacro:property name="models_dir"    value="$(arg models_dir)"/>
@@ -27,8 +28,8 @@
   <xacro:vehicle_body name="body" parent="base_link"/>
   
   <!-- differential drive  and joint stage plugin -->
-    <xacro:include filename="${models_dir}/${robot_model}/plugins_ignition.xacro"/>
-    <xacro:include filename="${models_dir}/${robot_model}/plugins_hardware.xacro"/>
+  <xacro:include filename="${models_dir}/${robot_model}/plugins_ignition.xacro"/>
+  <xacro:include filename="${models_dir}/${robot_model}/plugins_hardware.xacro"/>
 
 
   <xacro:if value="$(arg use_sim)">
