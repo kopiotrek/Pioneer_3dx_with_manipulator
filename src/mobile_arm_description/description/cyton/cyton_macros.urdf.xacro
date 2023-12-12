@@ -45,14 +45,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="1.5708 0 3.14159" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint1.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link1.dae" />
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="1.5708 0 3.14159" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint1.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link1.stl" />
                 </geometry>
             </collision>
             <inertial>
@@ -77,14 +77,14 @@
             <visual>
                 <origin xyz="0.028 0 0" rpy="0 1.5708 0" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint2.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link2.dae" />
                 </geometry>
                 <material name="blue"/>             
             </visual>
             <collision>
                 <origin xyz="0.028 0 0" rpy="0 1.5708 0" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint2.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link2.stl" />
                 </geometry>
             </collision>
             <inertial>
@@ -110,14 +110,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 3.92699" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint3.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link3.dae" />
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 3.92699" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint3.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link3.stl" />
                     <!-- <sphere radius="0.001" /> -->
                 </geometry>
             </collision>
@@ -146,14 +146,14 @@
                 <!-- Not sure if this is the correct orientation. -->
                 <origin xyz="0.027 0 0" rpy="1.5708 0 1.5708" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint4.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link4.dae" />
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0.027 0 0" rpy="1.5708 0 1.5708" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint4.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link4.stl" />
                     <!-- <sphere radius="0.001" /> -->
                 </geometry>
             </collision>
@@ -179,14 +179,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="1.5708 0 0" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint5.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link5.dae" />
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="1.5708 0 0" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint5.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link5.stl" />
                     <!-- <sphere radius="0.001" /> -->
                 </geometry>
             </collision>
@@ -213,14 +213,14 @@
             <visual>
                 <origin xyz="0.027 0 0" rpy="1.5708 0 1.5708" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint6.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link6.dae" />
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0.027 0 0" rpy="1.5708 0 1.5708" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint6.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link6.stl" />
                     <!-- <sphere radius="0.001" /> -->
                 </geometry>
             </collision>
@@ -246,14 +246,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 3.14159 1.5708" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint7.dae" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link7.dae" />
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 3.14159 1.5708" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint7.stl" />
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link7.stl" />
                     <!-- <sphere radius="0.001" /> -->
                 </geometry>
             </collision>
@@ -288,14 +288,14 @@
             <visual>
                 <origin xyz="0 0.0185 -0.035" rpy="0 0 3.14" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint9_stretched.dae"/>
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link9.dae"/>
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0 0.0185 -0.035" rpy="0 0 3.14" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint9_stretched.stl"/>
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link9.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -323,14 +323,14 @@
                 <!-- <origin xyz="0 0 -0.03" rpy="0 0 0" /> -->
                 <origin xyz="0 0 -0.035" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/joint9_stretched.dae"/>
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link9.dae"/>
                 </geometry>
                 <material name="blue"/>
             </visual>
             <collision>
                 <origin xyz="0 0 -0.035" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/joint9_stretched.stl"/>
+                    <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/link9.stl"/>
                 </geometry>
             </collision>
             <inertial>
