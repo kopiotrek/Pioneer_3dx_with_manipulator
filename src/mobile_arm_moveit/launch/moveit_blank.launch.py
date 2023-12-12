@@ -50,7 +50,7 @@ def generate_launch_description():
         "moveit_manage_controllers": True,
         "trajectory_execution.allowed_execution_duration_scaling": 2.0,
         "trajectory_execution.allowed_goal_duration_margin": 0.5,
-        "trajectory_execution.allowed_start_tolerance": 0.0,
+        "trajectory_execution.allowed_start_tolerance": 0.001,
         "use_sim_time": use_sim
     }
 

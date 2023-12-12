@@ -1,0 +1,39 @@
+model {
+  file: "model.sdf"
+}
+name: "Mens_ASV_Billfish_Boat_Shoe_in_Tan_Leather_wmUJ5PbwANc"
+description: "Men\'s ASV Billfish Boat Shoe in Tan Leather\nMen\'s ASV Billfish Boat Shoe"
+version: 1
+authors {
+  name: "Google"
+  email: "scanned-objects@google.com"
+}
+legal {
+  copyright: "Copyright 2020 Google LLC."
+  license: "Creative Commons Attribution 4.0 International"
+}
+annotations {
+  key: "brand"
+  value: "Sperry Top-Sider"
+}
+annotations {
+  key: "gtin"
+  value: "886129046736"
+}
+annotations {
+  key: "mpn"
+  value: "0785972"
+}
+annotations {
+  key: "sku"
+  value: "ASVBillfishBoatShoeF1101-7"
+}
+compatibilities {
+  name: "Gazebo"
+  version {
+    major: 11
+  }
+}
+categories {
+  first: "Shoe"
+}

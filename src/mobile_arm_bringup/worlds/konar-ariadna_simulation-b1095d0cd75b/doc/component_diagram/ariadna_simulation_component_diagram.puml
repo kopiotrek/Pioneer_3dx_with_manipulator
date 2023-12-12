@@ -1,0 +1,34 @@
+@startuml ariadna_simulation_component_diagram
+
+' "External" interfaces
+() "/ariadna/laser_scan \n \
+sensor_msgs/LaserScan.msg" as hokuyo_laser_scan
+() "/ariadna/imu/raw \n \
+sensor_msgs/Imu.msg" as imu_raw
+
+package ariadna_simulation{
+
+  ' "Internal" interfaces
+  () "Hokuyo USB" as hokuyo_usb
+  () "SocketCAN read" as socket_can_read
+  () "SocketCAN write" as socket_can_write
+
+  ' Components
+  [ariadna_can_communication]
+  [ariadna_dynamixel]
+  [ariadna_hokuyo]
+
+  ' "Internal" connections
+  ariadna_can_communication -left-( socket_can_read
+  ariadna_can_communication -right-() socket_can_write
+
+  ariadna_hokuyo -up-( hokuyo_usb
+}
+
+' "External" connections
+ariadna_can_communication -down--() imu_raw
+ariadna_can_communication -down--() wheel_rotations
+
+ariadna_hokuyo --() hokuyo_laser_scan
+
+@enduml

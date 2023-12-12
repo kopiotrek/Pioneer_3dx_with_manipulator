@@ -61,7 +61,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "world",
-            default_value="box.sdf",
+            default_value="cafe.world",
             description="Robot controller to start.",
         )
     )
@@ -120,10 +120,11 @@ def generate_launch_description():
         arguments=["-d", [rviz_config_file]],
     )
 
-    # Gazebo nodes
-    world_path = PathJoinSubstitution(
-                [FindPackageShare(runtime_config_package), "worlds", world]
-    )
+    # world_path = os.path.join(get_package_share_directory(runtime_config_package), 'worlds', world)
+
+    # world_path = PathJoinSubstitution(
+    #             [FindPackageShare(runtime_config_package), "worlds", world]
+    # )
     
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -131,12 +132,17 @@ def generate_launch_description():
         ),              launch_arguments = {'ign_args': "-v 4 -r /app/src/mobile_arm_bringup/worlds/box.sdf"}.items()
         ) 
 
+# /app/src/mobile_arm_bringup/worlds/box.sdf
+
     # Spawn robot
     gazebo_spawn_robot = Node(
         package="ros_gz_sim",#was ros_ign_gazebo
         executable="create",
         name="spawn_cyton",
-        arguments=["-name", "cyton", "-topic", "robot_description"],
+        arguments=["-name", "mobile_manipulator", "-topic", "robot_description", 
+                                   '-x', '0.0',
+                                   '-y', '0.0',
+                                   '-z', '0.0',],
         output="screen",
     )
 
