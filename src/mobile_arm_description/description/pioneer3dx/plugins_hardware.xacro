@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   
-    <xacro:macro name="plugins_hardware" params="initial_positions_file">
-      <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+    <xacro:macro name="plugins_hardware" params="usb_port baud_rate initial_positions_file">
+
+        
+        <xacro:macro name="ros_control_dynamixel" params="usb_port baud_rate">
+        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
 
         <ros2_control name="DynamixelHardware" type="system">
             <hardware>
               <plugin>dynamixel_hardware/DynamixelHardware</plugin>
-              <param name="usb_port">/dev/ttyUSB0</param>
-              <param name="baud_rate">115200</param>
+              <param name="usb_port">${usb_port}</param>
+              <param name="baud_rate">${baud_rate}</param>
               <param name="joint_ids">1,2,3,4,5,6,7,8</param>
             </hardware>
 
@@ -78,6 +81,47 @@
                 <state_interface name="velocity"/>
             </joint>
         </ros2_control>
+      </xacro:macro>
+    
+      <xacro:macro name="ros_control_odrive" params="name">
+        <ros2_control name="${name}_motors" type="system">
+
+            <hardware>
+              <plugin>???PioneerDriver???</plugin>
+              <param name="velocity_limit">30</param>
+              <param name="current_limit">60</param>
+            </hardware>
+
+          <joint name="left_wheel_joint">
+              <command_interface name="velocity">
+                  <param name="min">-10</param>
+                  <param name="max">10</param>
+              </command_interface>
+              <state_interface name="velocity"/>
+              <state_interface name="position"/>
+          </joint>
+          <joint name="right_wheel_joint">
+              <command_interface name="velocity">
+                  <param name="min">-10</param>
+                  <param name="max">10</param>
+              </command_interface>
+              <state_interface name="velocity"/>
+              <state_interface name="position"/>
+          </joint>
+          <joint name="swivel_joint">
+              <state_interface name="velocity"/>
+              <state_interface name="position"/>
+          </joint>
+          <joint name="swivel_wheel_joint">
+              <state_interface name="velocity"/>
+              <state_interface name="position"/>
+          </joint>
+        </ros2_control>
+      </xacro:macro>
+
+      <xacro:ros_control_dynamixel usb_port="${usb_port}" baud_rate="${baud_rate}" />
+      <xacro:ros_control_odrive name="pioneer"/>
+
     </xacro:macro>
 <!-- insert ros2 hardware controllers here -->
 

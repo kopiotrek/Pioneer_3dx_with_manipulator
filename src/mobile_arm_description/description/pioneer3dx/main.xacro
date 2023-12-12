@@ -11,6 +11,8 @@
   <xacro:arg name="laser0_visualize" default="true"/>
   <xacro:arg name="laser0_driver"    default="gpu"/>
   <xacro:arg name="use_sim"          default="False"/>
+  <xacro:arg name="usb_port"         default="/dev/ttyUSB0"/>
+  <xacro:arg name="baud_rate"        default="115200"/>
   <xacro:arg name="initial_positions_file"      default="$(find mobile_arm_moveit)/config/initial_positions.yaml"/>
 
     
@@ -33,10 +35,10 @@
 
 
   <xacro:if value="$(arg use_sim)">
-    <xacro:plugins_ignition />
+    <xacro:plugins_ignition/>
   </xacro:if>
   <xacro:unless value="$(arg use_sim)">
-    <xacro:plugins_hardware initial_positions_file="$(arg initial_positions_file)"/>
+    <xacro:plugins_hardware usb_port="${usb_port}" baud_rate="${baud_rate}" initial_positions_file="$(arg initial_positions_file)"/>
   </xacro:unless>
 
   
