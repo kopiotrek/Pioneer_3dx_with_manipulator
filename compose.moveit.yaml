@@ -1,10 +1,7 @@
 version: '3'
 services:
   mobile_arm_moveit:
-    build:
-      context: ./
-      dockerfile: docker/hardware/Dockerfile
-    image: mobile_arm_hardware
+    image: delicjusz/pioneer_3dx_with_manipulator:lab1.5
     user: ros
     network_mode: host
     ipc: host

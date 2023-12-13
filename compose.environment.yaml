@@ -1,22 +1,21 @@
 version: '3'
 services:
-  mobile_arm_simulation:
+  mobile_arm_moveit:
     build:
       context: ./
-      dockerfile: docker/simulation/Dockerfile
-    image: mobile_arm_simulation
+      dockerfile: docker/hardware/Dockerfile
+    image: mobile_arm_hardware
     user: ros
     network_mode: host
     ipc: host
     environment:
-      - DISPLAY
-      - QT_X11_NO_MITSHM=1
       - RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_fastrtps_cpp}
-      - CYCLONEDDS_URI=${CYCLONEDDS_URI}
       - ROS_DOMAIN_ID
+      - FASTRTPS_DEFAULT_PROFILES_FILE
+      - ROS_DISCOVERY_SERVER
+      - DISPLAY
     volumes:
-      - ./cyclonedds_ariadna.xml:/cyclonedds.xml
-      - ./src:/src
+      - ./fastdds.xml:/etc/ros/fastdds.xml
       - /tmp/.X11-unix:/tmp/.X11-unix
     devices:
       - /dev/dri:/dev/dri

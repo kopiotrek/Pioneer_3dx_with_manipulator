@@ -5,12 +5,10 @@
   <xacro:macro name="pioneer_wheel" params="name parent xyz rpy radius models_dir:=^">   
 
     <!-- Wheel -->
-    <joint name="${name}_wheel_joint" type="continuous">
+    <joint name="${name}_wheel_joint" type="fixed">
 		<origin xyz="${xyz}" rpy="${rpy}"/>
 		<parent link="${parent}"/>
 		<child link="${name}_wheel"/>
-		<axis xyz="0 1 0"/>
-		<dynamics damping="0.2" friction="0.7"/>
     </joint>
     <link name="${name}_wheel">
 		<xacro:drive_wheel_inertia radius="${radius}" length="0.02" mass="0.5" xyz="0 0 0" rpy="0 0 0"/>
