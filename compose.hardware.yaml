@@ -7,10 +7,10 @@ services:
     environment:
       - RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_fastrtps_cpp}
       - ROS_DOMAIN_ID
-      - FASTRTPS_DEFAULT_PROFILES_FILE
+      - FASTRTPS_DEFAULT_PROFILES_FILE=/fastdds.xml
       - ROS_DISCOVERY_SERVER
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
-      - ./fastdds.xml:/fastdds.xml
+      - ./fastdds.xml:/etc/ros/fastdds.xml
     command: ros2 launch mobile_arm_bringup hardware.launch.py

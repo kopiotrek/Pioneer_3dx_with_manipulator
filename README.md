@@ -31,6 +31,17 @@ ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory contr
   }
 }"
 
+ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory "{
+  trajectory: {
+    joint_names: [joint1, joint2, joint3, joint4, joint5, joint6, joint7],
+    points: [
+        { positions: [-0.8053399324417114, 0.21, -0.09357283264398575, -0.5798447728157043, 2.63077712059021, -1.7272623777389526, -0.4724660813808441], time_from_start: { sec: 5, nanosec: 0 } },
+    ]
+  }
+}"
+
+[-0.8053399324417114, 0.19328159093856812, -0.09357283264398575, -0.5798447728157043, 2.63077712059021, -1.7272623777389526, -0.4724660813808441, 0.015929520452224677]
+
 # Test Pioneer:
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard /cmd_vel:=/diff_drive_controller/cmd_vel_unstamped

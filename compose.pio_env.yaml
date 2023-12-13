@@ -21,4 +21,3 @@ services:
       - /dev/dri:/dev/dri
     stdin_open: true 
     tty: true
-    command: ros2 launch mobile_arm_moveit moveit_blank.launch.py use_sim:=False

@@ -10,6 +10,7 @@
         izz="${0.6 * mass * (x*x + y*y)}" />
     </inertial>
   </xacro:macro>
+  
 
   <xacro:macro name="battery_inertial" params="x y z mass">
     <inertial>
