@@ -7,6 +7,7 @@ services:
     environment:
       - RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_fastrtps_cpp}
       - ROS_DOMAIN_ID
+      - FASTRTPS_DEFAULT_PROFILES_FILE
       - ROS_DISCOVERY_SERVER
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
