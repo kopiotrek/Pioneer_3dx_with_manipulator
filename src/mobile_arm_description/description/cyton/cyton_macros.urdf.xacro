@@ -13,7 +13,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/gamma_base.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
@@ -21,7 +21,7 @@
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/collision/gamma_base.stl" />
                     <!-- <box size="0.1 0.1 0.007" /> -->
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </collision>
             <inertial>
                 <mass value="0.15" />
@@ -47,7 +47,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link1.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="1.5708 0 3.14159" />
@@ -79,7 +79,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link2.dae" />
                 </geometry>
-                <material name="blue"/>             
+                <material name="TopBlack"/>             
             </visual>
             <collision>
                 <origin xyz="0.028 0 0" rpy="0 1.5708 0" />
@@ -112,7 +112,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link3.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 3.92699" />
@@ -148,7 +148,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link4.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0.027 0 0" rpy="1.5708 0 1.5708" />
@@ -181,7 +181,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link5.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="1.5708 0 0" />
@@ -215,7 +215,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link6.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0.027 0 0" rpy="1.5708 0 1.5708" />
@@ -248,7 +248,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link7.dae" />
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 3.14159 1.5708" />
@@ -290,7 +290,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link8.dae" scale="1.0 1.0 2.0"/>
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0.0 -0.035" rpy="0 0 0" />
@@ -324,7 +324,7 @@
                 <geometry>
                     <mesh filename="file://$(arg models_dir)/cyton/meshes/visual/link9.dae" scale="1.0 1.0 2.0"/>
                 </geometry>
-                <material name="blue"/>
+                <material name="TopBlack"/>
             </visual>
             <collision>
                 <origin xyz="0 0 -0.035" rpy="0 0 0" />
