@@ -38,6 +38,6 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard /cmd_vel:=/diff_drive_contr
 Issues:
 Drgania - Nie można zapisać PID serw do uruchomienia, brak sterowania prędkością
 Problem z zegarem symulacji
-Możliwe problemy z powodu pliku .setup_assistant i tego, że bierze on defaultowego urdfa do moveit
+
 
 

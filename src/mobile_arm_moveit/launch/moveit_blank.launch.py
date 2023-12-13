@@ -23,7 +23,7 @@ def generate_launch_description():
     )
     declare_use_sim_arg = DeclareLaunchArgument(
         "use_sim",
-        default_value="True",
+        default_value="False",
         description="Start robot in Gazebo simulation.",
     )
 
@@ -90,10 +90,10 @@ def generate_launch_description():
 
 
     actions = [
+        SetParameter(name="use_sim_time", value=use_sim),
         declare_use_sim_arg,
         declare_description_package_arg,
         declare_description_file_arg,
-        # SetParameter(name="use_sim_time", value=use_sim),
         move_group_node,
         rviz_node
     ]
