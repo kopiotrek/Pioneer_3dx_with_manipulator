@@ -22,7 +22,7 @@
     <xacro:pioneer_sonar name="sonar" parent="${name}" xyz="0.109 0 0.15" rpy="0 0 0"/>      
     
     <!-- Akku0 -->
-    <xacro:pioneer_battery_block name="battery0" parent="${name}" x="-0.14" y="0.00"  z="${0.13-0.068}" mass="2.5" />  
+    <xacro:pioneer_battery_block name="battery0" parent="${name}" x="-0.14" y="0.00"  z="${0.13-0.068}" mass="5.5" />  
     
     <!-- Wheels -->
     <!-- <xacro:property name="contact_data">

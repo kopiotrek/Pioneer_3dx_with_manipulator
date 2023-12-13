@@ -79,7 +79,7 @@
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>file:///home/alves/Documents/Classes/Fall23/MECH495/FinalProject/groupWS/install/teleop_tasks/share/teleop_tasks/worlds/../models/Table.dae</uri>
+              <uri>file:///gripper-%%/alves/Documents/Classes/Fall23/MECH495/FinalProject/groupWS/install/teleop_tasks/share/teleop_tasks/worlds/../models/Table.dae</uri>
             </mesh>
           </geometry>
         </collision>

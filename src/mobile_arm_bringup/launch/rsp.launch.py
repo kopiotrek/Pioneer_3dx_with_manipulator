@@ -55,9 +55,21 @@ def generate_launch_description():
         parameters=[robot_description,{'use_sim_time': True}],
     )
 
+    rviz_config_file = PathJoinSubstitution(
+        [FindPackageShare(description_package), "rviz", "rviz_1.rviz"])
+
+    rviz_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="log",
+        arguments=["-d", [rviz_config_file]],
+    )
+
     return LaunchDescription(
         declared_arguments
         + [
             robot_state_pub_node,
+            rviz_node
         ]
     )
