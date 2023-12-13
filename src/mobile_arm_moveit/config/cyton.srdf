@@ -89,6 +89,7 @@
     <disable_collisions link1="right_hub" link2="right_wheel" reason="Adjacent"/>
     <disable_collisions link1="swivel" link2="swivel_wheel" reason="Adjacent"/>
     <disable_collisions link1="swivel_hubcap" link2="swivel_wheel" reason="Adjacent"/>
+    <disable_collisions link1="arm_base_link" link2="body" reason="Adjacent"/>
 
 </robot>
 

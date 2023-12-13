@@ -49,7 +49,7 @@
 
   <!-- Arm -->
   <xacro:include filename="${models_dir}/${arm_model}/main.xacro" />
-  <xacro:arm name="cyton" parent="top" xyz="0.109 0.0 -0.016" rpy="0 0 1.5707" use_sim="$(arg use_sim)"/>
+  <xacro:arm name="cyton" parent="top" xyz="0.26 0.0 -0.16" rpy="0 0 1.5707" use_sim="$(arg use_sim)"/>
   <!-- <xacro:arm name="cyton" parent="top" xyz="0.0 0.0 0.0" rpy="0 0 0" use_sim="$(arg use_sim)"/> -->
 
 </robot>
