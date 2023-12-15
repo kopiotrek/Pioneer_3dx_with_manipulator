@@ -1,6 +1,9 @@
 services:
   mobile_arm_hardware:
-    image: kopiotrek/pioneer_3dx_with_manipulator:lab1.5
+    build:
+      context: ./
+      dockerfile: docker/hardware/Dockerfile
+    image: mobile_arm_hardware
     user: ros
     network_mode: host
     ipc: host
@@ -9,7 +12,8 @@ services:
       - ROS_DOMAIN_ID
       - FASTRTPS_DEFAULT_PROFILES_FILE=/fastdds.xml
       - ROS_DISCOVERY_SERVER
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
-      - ./fastdds.xml:/etc/ros/fastdds.xml
-    stdin_open: true 
-    tty: true
+      - ./fastdds.xml:/fastdds.xml
+    command: ros2 launch mobile_arm_bringup hardware.launch.pydo

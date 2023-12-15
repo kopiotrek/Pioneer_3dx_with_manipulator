@@ -1,6 +1,6 @@
 services:
   mobile_arm_hardware:
-    image: delicjusz/pioneer_3dx_with_manipulator:lab1.5
+    image: kopiotrek/pioneer_3dx_with_manipulator:lab1.5
     user: ros
     network_mode: host
     ipc: host
@@ -12,5 +12,5 @@ services:
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
-      - ./fastdds.xml:/etc/ros/fastdds.xml
-    command: ros2 launch mobile_arm_bringup hardware.launch.py
+      - ./fastdds.xml:/fastdds.xml
+    command: ros2 launch mobile_arm_bringup hardware.launch.pydo
