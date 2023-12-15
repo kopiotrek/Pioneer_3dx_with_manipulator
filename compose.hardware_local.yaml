@@ -16,4 +16,4 @@ services:
       - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
       - ./fastdds.xml:/fastdds.xml
-    command: ros2 launch mobile_arm_bringup hardware.launch.pydo
+    command: ros2 launch mobile_arm_bringup hardware.launch.py
