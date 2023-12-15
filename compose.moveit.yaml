@@ -1,7 +1,7 @@
 version: '3'
 services:
   mobile_arm_moveit:
-    image: kopiotrek/pioneer_3dx_with_manipulator:lab1.5
+    image: kopiotrek/pioneer_3dx_with_manipulator:lab1_5
     user: ros
     network_mode: host
     ipc: host
