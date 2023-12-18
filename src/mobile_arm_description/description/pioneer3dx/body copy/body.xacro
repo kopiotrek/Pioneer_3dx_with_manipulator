@@ -25,13 +25,13 @@
     <xacro:pioneer_battery_block name="battery0" parent="${name}" x="-0.14" y="0.00"  z="${0.13-0.068}" mass="5.5" />  
     
     <!-- Wheels -->
-    <xacro:property name="contact_data">
+    <!-- <xacro:property name="contact_data">
         <mu1 value="0.7"/>
         <mu2 value="0.7"/>
         <minDepth value="0.002"/>
         <kp value="1000000.0"/>
         <kd value="10.0"/>
-    </xacro:property> 
+    </xacro:property>  -->
 
     <!-- Swivels -->
     <xacro:pioneer_swivel  name="swivel"    parent="${parent}"  xyz="-0.185 0    0.0555" rpy="0 0 0"/>              
